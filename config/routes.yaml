@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::indexAction
+
+#jeu:
+#    path: /jeu
+#    controller: APP\Controller\JeuController:indexAction
