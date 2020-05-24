@@ -39,3 +39,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: NommenclatureEtat }
         public: true
+
+    admin.lieu:
+        class: App\Admin\LieuAdmin
+        arguments: [~, App\Entity\Lieu, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Lieu }
+        public: true

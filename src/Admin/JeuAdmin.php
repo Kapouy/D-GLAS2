@@ -20,6 +20,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
 
 final class JeuAdmin extends AbstractAdmin
 {
@@ -108,13 +109,13 @@ final class JeuAdmin extends AbstractAdmin
     {
         $formMapper
             ->with('Boite de jeu', ['class' => 'col-md-4'])
-                ->add('nommenclatureJeu', 'sonata_type_model', [
+                ->add('nommenclatureJeu', ModelAutocompleteType::class, [
                     'class' => 'App\Entity\NommenclatureJeu',
                     'property' => 'nom',
                     'label' => 'Nom'
                 ])
                 ->add('idPhysique')
-                ->add('proprietaire', 'sonata_type_model', [
+                ->add('proprietaire', ModelAutocompleteType::class, [
                     'class' => 'App\Entity\Proprietaire',
                     'property' => 'nom',
                     'label' => 'Nom'
@@ -153,7 +154,7 @@ final class JeuAdmin extends AbstractAdmin
         ->end()
         
         ->with('Historique des états', ['class'=>'col-md-6'])
-            ->add('etatJeu', 'sonata_type_model', [
+            ->add('etatJeu', ModelAutocompleteType::class, [
                 'class' => 'App\Entity\EtatJeu',
                 'associated_property' => 'dateEtatString'
             ])
