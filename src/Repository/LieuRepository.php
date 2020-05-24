@@ -19,6 +19,32 @@ class LieuRepository extends ServiceEntityRepository
         parent::__construct($registry, Lieu::class);
     }
 
+	public function getChoices()
+	{
+		$raw = $this->_em->createQuery('
+			SELECT c.id, c.nom
+			FROM App\Entity\Lieu c
+			ORDER BY c.id ASC
+		')->getResult();
+		$etat = array();
+		foreach ($raw as $r) {
+			$key          = $r['id'];
+			$etat[$key] = $r['nom'] ;
+		}
+		return $etat;
+	}
+	
+	public function getDefaut()
+	{
+		$raw = $this->_em->createQuery('
+			SELECT c
+			FROM App\Entity\Lieu c
+			WHERE c.defaut = 1
+			ORDER BY c.id DESC
+		')->getResult();
+		return $raw[0];
+	}
+	
     // /**
     //  * @return Lieu[] Returns an array of Lieu objects
     //  */

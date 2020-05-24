@@ -19,6 +19,21 @@ class NommenclatureEtatRepository extends ServiceEntityRepository
         parent::__construct($registry, NommenclatureEtat::class);
     }
 
+	public function getChoices()
+	{
+		return $this->getChoicesQB()->getQuery()->getResult();
+	}
+	
+	public function getChoicesQB()
+	{
+		
+		$qb = $this->createQueryBuilder('c');
+ 
+		$qb->where('c.valide = 1');
+		
+		return $qb;
+	}
+	
     // /**
     //  * @return NommenclatureEtat[] Returns an array of NommenclatureEtat objects
     //  */
