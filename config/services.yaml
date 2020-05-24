@@ -46,3 +46,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Lieu }
         public: true
+
+    admin.nommenclature_jeu:
+        class: App\Admin\NommenclatureJeuAdmin
+        arguments: [~, App\Entity\NommenclatureJeu, App\Controller\NommenclatureJeuAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: NommenclatureJeu }
+        public: true
