@@ -60,3 +60,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: EtatJeu }
         public: true
+
+    admin.gestionnaire_jeu:
+        class: App\Admin\GestionnaireJeuAdmin
+        arguments: [~, App\Entity\GestionnaireJeu, App\Controller\GestionnaireJeuAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: GestionnaireJeu }
+        public: true
