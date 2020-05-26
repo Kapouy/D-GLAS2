@@ -67,3 +67,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: GestionnaireJeu }
         public: true
+
+    admin.proprietaire:
+        class: App\Admin\ProprietaireAdmin
+        arguments: [~, App\Entity\Proprietaire, App\Controller\ProprietaireAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Proprietaire }
+        public: true
