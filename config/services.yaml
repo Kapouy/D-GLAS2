@@ -53,3 +53,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: NommenclatureJeu }
         public: true
+
+    admin.etat_jeu:
+        class: App\Admin\EtatJeuAdmin
+        arguments: [~, App\Entity\EtatJeu, App\Controller\EtatJeuAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: EtatJeu }
+        public: true

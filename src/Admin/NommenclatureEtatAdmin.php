@@ -16,7 +16,6 @@ final class NommenclatureEtatAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
-            ->add('id')
             ->add('nom')
             ->add('ordre')
             ->add('inventoriable')
@@ -27,11 +26,10 @@ final class NommenclatureEtatAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
-            ->add('id')
             ->add('nom')
-            ->add('ordre')
             ->add('inventoriable')
-            ->add('valide')
+			->add('valide')
+			->add('ordre')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -44,18 +42,16 @@ final class NommenclatureEtatAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
-            ->add('id')
             ->add('nom')
             ->add('ordre')
-            ->add('inventoriable')
             ->add('valide')
+			->add('inventoriable')
             ;
     }
 
     protected function configureShowFields(ShowMapper $showMapper): void
     {
         $showMapper
-            ->add('id')
             ->add('nom')
             ->add('ordre')
             ->add('inventoriable')

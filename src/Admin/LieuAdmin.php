@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 
 final class LieuAdmin extends AbstractAdmin
 {
@@ -47,10 +47,10 @@ final class LieuAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('nom')
-			->add('lieuParent', ModelAutocompleteType::class, [
+			->add('lieuParent', ModelListType::class, [
                     'class' => 'App\Entity\Lieu',
-                    'property' => 'nom',
                     'label' => 'Lieu parent',
+					'btn_edit' => false,
 					'required' => false
                 ])
             ->add('jeuUtilisable', CheckboxType::class, array(
